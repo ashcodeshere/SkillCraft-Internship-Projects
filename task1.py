@@ -7,14 +7,22 @@ print("1. Convert Simple text to Cipher text\n")
 print("2. Convert Cipher text to Simple text\n")
 print("3. Find  Shift Value\n")
 
-def SimToCip():
+def SimpleToCipher():
     SimpleText=input("Enter Simple Text: ")
     ShiftVal=int(input("Enter Shift Value: "))
+    cipherval=""
     for i in SimpleText:
-        cipherval=(i+ShiftVal)
+        if i.isalpha():
+            start=ord('A') if i.isupper() else ord('a')
+            cipherval+=chr((ord(i)-start+ShiftVal)%26+start)
+        else:
+            cipherval+=i            
     return cipherval
 
 n=int(input("Enter task to be done: "))
 if n==1:
-    CipherText=SimToCip()
-    print(f"CipherText={CipherText}")
+    CipherText=SimpleToCipher()
+    print(f"CipherText = {CipherText}")
+
+else:
+    print("Not a valid Task Number. ")
