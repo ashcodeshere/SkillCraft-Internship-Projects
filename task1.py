@@ -19,10 +19,31 @@ def SimpleToCipher():
             cipherval+=i            
     return cipherval
 
+def CipherToSimple():
+    CipherText=input("Enter Cipher Text: ")
+    ShiftVal=int(input("Enter Shift Value: "))
+    SimpleText=""
+    for i in CipherText:
+        if i.isalpha():
+            start=ord('A') if i.isupper() else ord('a')
+            SimpleText+=chr((ord(i)-start-ShiftVal)%26+start)
+        else:
+            SimpleText+=i
+    return SimpleText
+
+def ShiftValue():
+    # To be defined soon
+    return ShiftVal
+
 n=int(input("Enter task to be done: "))
 if n==1:
     CipherText=SimpleToCipher()
     print(f"CipherText = {CipherText}")
-
+elif n==2:
+    SimpleText=CipherToSimple()
+    print(f"Simple Text = {SimpleText}")
+elif n==3:
+    ShiftVal=ShiftValue()
+    print(f"Shift Value = {ShiftVal}")
 else:
     print("Not a valid Task Number. ")
