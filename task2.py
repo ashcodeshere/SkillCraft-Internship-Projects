@@ -1,3 +1,6 @@
+# Develop a simple image encryption tool using pixel manipulation that support operations
+# like swapping pixel values or applying a basic mathematical operation to each pixel.
+
 from PIL import Image
 
 def encrypt_image(INPUT_PATH, OUTPUT_PATH, key=(10, -92, 85), mode="math"):
